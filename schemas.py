@@ -1,5 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from datetime import date
+from typing import Optional
 
 class UserCreate(BaseModel):
     name: str
@@ -7,6 +8,8 @@ class UserCreate(BaseModel):
     date_of_birth: str
     mobile_number: str
     password: str
+    is_admin: Optional[bool] = False  
+    
 
 class UserLogin(BaseModel):
     email: EmailStr
@@ -26,4 +29,7 @@ class ShowUser(BaseModel):
     is_admin: bool
 
     class Config:
-        orm_mode = True
+        # orm_mode = True
+          from_attributes = True
+# # class Config:
+#     from_attributes = True

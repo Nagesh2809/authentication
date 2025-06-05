@@ -11,3 +11,4 @@ class User(Base):
     mobile_number = Column(String)
     hashed_password = Column(String)
     is_admin = Column(Boolean, default=False)
+    jwt = Column(String, nullable=True)
